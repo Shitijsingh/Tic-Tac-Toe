@@ -1,33 +1,40 @@
-import useTictacToe from "./hook/use-tic-taco";
+import useTictacTeo from './hook/use-tic-taco';
 
-function TicTacToe() {
-    const { board, handleClick, resetGame, getStatusMessage } = useTictacToe();
+function Tictaco() {
+    const {
+        board,
+        handleClick,
+        getStatusMessage,
+        resetGame,
+        winnerOfTen,
+        gamesPlayed
+    } = useTictacTeo();
 
     return (
-        <div className="game">
+        <div className='game'>
             <div className="status">
                 {getStatusMessage()}
-                <button className="reset-button" onClick={resetGame}>
-                    Reset Game
-                </button>
+                <button className="reset" onClick={resetGame}>Reset Game</button>
             </div>
-
-            <div className="board">
-                {board.map((b, index) => {
-                    return (
+            <div className="board-ui">
+                {
+                    board.map((cell, index) => (
                         <button
-                            className="cell"
+                            className='cell'
                             key={index}
                             onClick={() => handleClick(index)}
-                            disabled={b !== null}
                         >
-                            {b}
+                            {cell}
                         </button>
-                    );
-                })}
+                    ))
+                }
+            </div>
+            <div className="game-info">
+                <p>Games Played: {gamesPlayed}</p>
+                {winnerOfTen && <h3>{winnerOfTen}</h3>}
             </div>
         </div>
     );
 }
 
-export default TicTacToe;
+export default Tictaco;
