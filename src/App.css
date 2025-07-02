@@ -10,6 +10,13 @@ body {
 }
 
 .status {
+  font-size: 21px;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.status {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
